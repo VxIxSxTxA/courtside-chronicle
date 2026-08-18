@@ -179,8 +179,60 @@ function Hero() {
         </div>
       </div>
     </section>
+function TeamLineup() {
+  return (
+    <section id="team" className="bg-background py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center">
+          <span className="inline-flex items-center gap-2 font-body text-sm font-semibold uppercase tracking-wider text-primary">
+            <Shirt className="h-4 w-4" /> Hoop Pilipinas Core
+          </span>
+          <h2 className="mt-2 font-display text-5xl text-foreground sm:text-6xl">Team Line Up</h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">The players, leaders, and weekend warriors who bring the community to life.</p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {roster.map((player) => (
+            <div
+              key={player.number}
+              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow hover:shadow-md"
+            >
+              <div className="relative aspect-square overflow-hidden bg-muted">
+                <img
+                  src={player.photo}
+                  alt={`${player.name} — ${player.position}`}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={600}
+                  height={600}
+                  loading="lazy"
+                />
+                <div className="absolute left-4 top-4 grid h-12 w-12 place-items-center rounded-full bg-accent font-display text-2xl text-accent-foreground shadow-sm">
+                  {player.number}
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="font-display text-2xl text-foreground">{player.name}</h3>
+                <p className="font-body text-sm font-semibold text-primary">{player.position}</p>
+                <div className="mt-4 flex items-center gap-4 border-t border-border pt-4 font-body text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    {player.height}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <MapPin className="h-3.5 w-3.5 text-hoops-red" />
+                    {player.hometown}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
+
+
 
 function Standings() {
   return (
