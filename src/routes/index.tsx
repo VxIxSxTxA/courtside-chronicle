@@ -73,6 +73,16 @@ const values = [
   { title: "Grow Together", body: "From weekend warriors to rising stars, we train, learn, and level up as one family." },
 ];
 
+const roster = [
+  { name: "Miguel Santos", number: 12, position: "Captain / Guard", photo: teamCaptain.url, height: "5'11\"", hometown: "Quezon City" },
+  { name: "Jared Cruz", number: 7, position: "Point Guard", photo: teamGuard1.url, height: "5'9\"", hometown: "Manila" },
+  { name: "Denzel Reyes", number: 23, position: "Shooting Guard", photo: teamGuard2.url, height: "6'0\"", hometown: "Cebu" },
+  { name: "Andres Bautista", number: 9, position: "Small Forward", photo: teamForward1.url, height: "6'2\"", hometown: "Davao" },
+  { name: "Rafael Torres", number: 33, position: "Power Forward", photo: teamForward2.url, height: "6'3\"", hometown: "Iloilo" },
+  { name: "Kai Mendoza", number: 45, position: "Center", photo: teamCenter.url, height: "6'6\"", hometown: "Pampanga" },
+];
+
+
 function LandingPage() {
   return (
     <main className="min-h-screen bg-background">
