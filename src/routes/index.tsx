@@ -88,6 +88,7 @@ function LandingPage() {
     <main className="min-h-screen bg-background">
       <Header />
       <Hero />
+      <TeamLineup />
       <Standings />
       <Events />
       <About />
@@ -95,6 +96,7 @@ function LandingPage() {
     </main>
   );
 }
+
 
 function Header() {
   return (
