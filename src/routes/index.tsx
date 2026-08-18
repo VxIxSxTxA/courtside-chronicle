@@ -1,8 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Trophy, Calendar, Users, ChevronRight, MapPin, Mail } from "lucide-react";
+import { Trophy, Calendar, Users, ChevronRight, MapPin, Mail, Shirt } from "lucide-react";
 
 import heroImage from "@/assets/hero-basketball.jpg";
 import communityImage from "@/assets/community-team.jpg";
+import teamCaptain from "@/assets/team-captain.jpg.asset.json";
+import teamGuard1 from "@/assets/team-guard1.jpg.asset.json";
+import teamGuard2 from "@/assets/team-guard2.jpg.asset.json";
+import teamForward1 from "@/assets/team-forward1.jpg.asset.json";
+import teamForward2 from "@/assets/team-forward2.jpg.asset.json";
+import teamCenter from "@/assets/team-center.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
