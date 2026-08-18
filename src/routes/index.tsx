@@ -1,8 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Trophy, Calendar, Users, ChevronRight, MapPin, Mail } from "lucide-react";
+import { Trophy, Calendar, Users, ChevronRight, MapPin, Mail, Shirt } from "lucide-react";
 
 import heroImage from "@/assets/hero-basketball.jpg";
 import communityImage from "@/assets/community-team.jpg";
+import teamCaptain from "@/assets/team-captain.jpg.asset.json";
+import teamGuard1 from "@/assets/team-guard1.jpg.asset.json";
+import teamGuard2 from "@/assets/team-guard2.jpg.asset.json";
+import teamForward1 from "@/assets/team-forward1.jpg.asset.json";
+import teamForward2 from "@/assets/team-forward2.jpg.asset.json";
+import teamCenter from "@/assets/team-center.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,10 +26,12 @@ export const Route = createFileRoute("/")({
 });
 
 const navLinks = [
+  { label: "Team", href: "#team" },
   { label: "Standings", href: "#standings" },
   { label: "Events", href: "#events" },
   { label: "About", href: "#about" },
 ];
+
 
 const standings = [
   { rank: 1, team: "Barangay Kings", gp: 12, w: 10, l: 2, pct: 0.833, pts: 20 },
@@ -64,11 +73,22 @@ const values = [
   { title: "Grow Together", body: "From weekend warriors to rising stars, we train, learn, and level up as one family." },
 ];
 
+const roster = [
+  { name: "Miguel Santos", number: 12, position: "Captain / Guard", photo: teamCaptain.url, height: "5'11\"", hometown: "Quezon City" },
+  { name: "Jared Cruz", number: 7, position: "Point Guard", photo: teamGuard1.url, height: "5'9\"", hometown: "Manila" },
+  { name: "Denzel Reyes", number: 23, position: "Shooting Guard", photo: teamGuard2.url, height: "6'0\"", hometown: "Cebu" },
+  { name: "Andres Bautista", number: 9, position: "Small Forward", photo: teamForward1.url, height: "6'2\"", hometown: "Davao" },
+  { name: "Rafael Torres", number: 33, position: "Power Forward", photo: teamForward2.url, height: "6'3\"", hometown: "Iloilo" },
+  { name: "Kai Mendoza", number: 45, position: "Center", photo: teamCenter.url, height: "6'6\"", hometown: "Pampanga" },
+];
+
+
 function LandingPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
       <Hero />
+      <TeamLineup />
       <Standings />
       <Events />
       <About />
@@ -76,6 +96,7 @@ function LandingPage() {
     </main>
   );
 }
+
 
 function Header() {
   return (
@@ -160,6 +181,62 @@ function Hero() {
     </section>
   );
 }
+
+function TeamLineup() {
+
+  return (
+    <section id="team" className="bg-background py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center">
+          <span className="inline-flex items-center gap-2 font-body text-sm font-semibold uppercase tracking-wider text-primary">
+            <Shirt className="h-4 w-4" /> Hoop Pilipinas Core
+          </span>
+          <h2 className="mt-2 font-display text-5xl text-foreground sm:text-6xl">Team Line Up</h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">The players, leaders, and weekend warriors who bring the community to life.</p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {roster.map((player) => (
+            <div
+              key={player.number}
+              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow hover:shadow-md"
+            >
+              <div className="relative aspect-square overflow-hidden bg-muted">
+                <img
+                  src={player.photo}
+                  alt={`${player.name} — ${player.position}`}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={600}
+                  height={600}
+                  loading="lazy"
+                />
+                <div className="absolute left-4 top-4 grid h-12 w-12 place-items-center rounded-full bg-accent font-display text-2xl text-accent-foreground shadow-sm">
+                  {player.number}
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="font-display text-2xl text-foreground">{player.name}</h3>
+                <p className="font-body text-sm font-semibold text-primary">{player.position}</p>
+                <div className="mt-4 flex items-center gap-4 border-t border-border pt-4 font-body text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    {player.height}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <MapPin className="h-3.5 w-3.5 text-hoops-red" />
+                    {player.hometown}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 
 function Standings() {
   return (
