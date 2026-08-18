@@ -26,10 +26,12 @@ export const Route = createFileRoute("/")({
 });
 
 const navLinks = [
+  { label: "Team", href: "#team" },
   { label: "Standings", href: "#standings" },
   { label: "Events", href: "#events" },
   { label: "About", href: "#about" },
 ];
+
 
 const standings = [
   { rank: 1, team: "Barangay Kings", gp: 12, w: 10, l: 2, pct: 0.833, pts: 20 },
